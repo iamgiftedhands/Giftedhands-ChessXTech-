@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giftedhands | Chess Mastery - Master Your Strategy</title>
+    <!-- 🛑 NOTE: Tailwind CSS CDN is used here to ensure styles load, bypassing local file path issues. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- INLINE STYLES -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --color-primary: #1a1a2e;
+            --color-secondary: #0f4c75;
+            --color-accent: #ffd700;
+            --color-light: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            scroll-behavior: smooth;
+        }
+
+        .bg-gradient-hero-chess {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(15, 76, 117, 0.9) 100%);
+        }
+        .text-accent { color: var(--color-accent); }
+        .btn-accent {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+        }
+        .btn-accent:hover {
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px);
+        }
+        .card-bg { background-color: rgba(36, 44, 74, 0.7); }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Menu Sidebar (JS is at the bottom of the body) -->
+    <div id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-[--color-secondary] z-[60] transform translate-x-full transition-transform duration-300 shadow-2xl p-6 md:hidden">
+        <button id="close-menu-button" class="absolute top-4 right-4 text-3xl text-white hover:text-accent focus:outline-none">
+            &times;
+        </button>
+        <div class="pt-10 space-y-4 flex flex-col">
+            <a href="index.html" class="text-xl text-white hover:text-accent transition duration-200">Home</a>
+            <a href="code.html" class="text-xl text-white hover:text-accent transition duration-200">Coding Lessons</a>
+            <a href="about.html" class="text-xl text-white hover:text-accent transition duration-200">About Me</a>
+            <a href="index.html#contact-details" class="text-xl text-white hover:text-accent transition duration-200">Book/Contact</a>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[--color-primary] shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tight">
+                <span class="text-accent">Gifted</span><span class="text-white">hands</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="index.html" class="hover:text-accent transition duration-200">Home</a>
+                <a href="code.html" class="hover:text-accent transition duration-200">Coding Lessons</a>
+                <a href="about.html" class="hover:text-accent transition duration-200">About Me</a>
+                <a href="index.html#contact-details" class="hover:text-accent transition duration-200">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="menu-button" class="md:hidden text-2xl hover:text-accent focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="bg-gradient-hero-chess text-white py-24 md:py-36 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl sm:text-7xl font-extrabold mb-4 tracking-tight">
+                <span class="text-accent">Chess Mastery</span> Coaching
+            </h1>
+            <p class="text-xl sm:text-2xl font-light mb-8 max-w-2xl mx-auto">
+                Elevate your rating, sharpen your tactics, and master the strategic depth of the game with personalized, performance-driven training.
+            </p>
+            <a href="#packages" class="btn-accent px-8 py-3 rounded-xl text-lg font-semibold shadow-2xl hover:shadow-accent/80">
+                View Coaching Packages
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. Coaching Philosophy -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">My Approach: Strategy First</h2>
+            <div class="max-w-3xl mx-auto text-lg text-gray-300 space-y-6">
+                <p>
+                    Coaching isn't just about memorizing opening moves; it's about developing the **mental discipline** required for high-level problem-solving—the same discipline I use in software architecture. I focus on transferring the "Giftedhands" mindset to the chessboard.
+                </p>
+                <p>
+                    We won't chase arbitrary ratings; we will systematically target the weaknesses in your calculation, decision-making, and psychological game. We use a data-driven approach, analyzing your games like a software developer debugs a system, finding the root cause of errors.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Core Training Pillars -->
+    <section class="py-16 md:py-24 bg-[--color-secondary] px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Three Pillars of Improvement</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Pillar 1: Tactical Vision -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl text-center border border-accent/20">
+                    <div class="text-5xl mb-4 text-accent">♞</div>
+                    <h3 class="text-2xl font-bold mb-3">Tactical Vision Accelerator</h3>
+                    <p class="text-gray-300">Intensive training on combinations, geometry, forks, and pins. We move beyond simple puzzles to recognize complex, deep tactical patterns instantly, using **engine-backed data-driven game analysis**.</p>
+                </div>
+
+                <!-- Pillar 2: Strategic Planning -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl text-center border border-accent/20">
+                    <div class="text-5xl mb-4 text-accent">♛</div>
+                    <h3 class="text-2xl font-bold mb-3">Positional & Endgame Mastery</h3>
+                    <p class="text-gray-300">Learn to evaluate quiet positions, exploit static advantages, and flawlessly convert endgames. Focus on pawn structure and piece quality.</p>
+                </div>
+
+                <!-- Pillar 3: Opening Repertoire -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl text-center border border-accent/20">
+                    <div class="text-5xl mb-4 text-accent">♔</div>
+                    <h3 class="text-2xl font-bold mb-3">Repertoire Development & Review</h3>
+                    <p class="text-gray-300">Build a personalized opening arsenal that suits your style. We cover critical lines and ensure you understand the middle-game plans stemming from each opening.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Private Coaching Packages (1-on-1) -->
+    <section id="packages" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Private Coaching (1-on-1)</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Package 1: Starter -->
+                <div class="card-bg p-8 rounded-2xl shadow-2xl border border-gray-600 flex flex-col hover:shadow-lg hover:shadow-gray-700 transition duration-300">
+                    <h3 class="text-3xl font-extrabold text-accent mb-2">The Starter Kit</h3>
+                    <p class="text-gray-400 mb-6">Perfect for serious beginners or intermediate players looking for a focused analysis.</p>
+                    <div class="text-5xl font-bold text-white mb-4">₦ 15,000</div>
+                    <ul class="space-y-3 flex-grow mb-8 text-left text-gray-300">
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> One-time **90-minute session**</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Current Game Diagnosis</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Custom Homework Sheet</li>
+                        <li class="flex items-start text-gray-500">✗ Priority messaging support</li>
+                        <li class="flex items-start text-gray-500">✗ Opening repertoire overhaul</li>
+                    </ul>
+                    <a href="index.html#contact-details" class="btn-accent text-center px-6 py-3 rounded-xl font-semibold mt-auto">Book Starter</a>
+                </div>
+
+                <!-- Package 2: Accelerator (Recommended) -->
+                <div class="card-bg p-8 rounded-2xl shadow-2xl border-4 border-accent flex flex-col relative transform scale-[1.02] hover:scale-[1.04] transition duration-500">
+                    <div class="absolute top-0 right-0 bg-accent text-primary text-sm font-bold py-1 px-3 rounded-tr-xl rounded-bl-lg">Most Popular</div>
+                    <h3 class="text-3xl font-extrabold text-accent mb-2">Tactical Accelerator</h3>
+                    <p class="text-gray-400 mb-6">Deep dive into a specific area (e.g., endgames, complex tactics) over a month.</p>
+                    <div class="text-5xl font-bold text-white mb-4">₦ 45,000</div>
+                    <ul class="space-y-3 flex-grow mb-8 text-left text-gray-300">
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> **4 x 60-minute weekly sessions**</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Targeted training modules</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Priority Q&A via email/WhatsApp</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Personalized Game Review (4 games)</li>
+                        <li class="flex items-start text-gray-500">✗ Tournament preparation plan</li>
+                    </ul>
+                    <a href="index.html#contact-details" class="btn-accent text-center px-6 py-3 rounded-xl font-semibold mt-auto">Enroll in Accelerator</a>
+                </div>
+
+                <!-- Package 3: Master Plan -->
+                <div class="card-bg p-8 rounded-2xl shadow-2xl border border-gray-600 flex flex-col hover:shadow-lg hover:shadow-gray-700 transition duration-300">
+                    <h3 class="text-3xl font-extrabold text-accent mb-2">The Tournament Master</h3>
+                    <p class="text-gray-400 mb-6">Comprehensive, long-term preparation for competitive tournament play.</p>
+                    <div class="text-5xl font-bold text-white mb-4">₦ 100,000</div>
+                    <ul class="space-y-3 flex-grow mb-8 text-left text-gray-300">
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> **8 x 60-minute bi-weekly sessions**</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Full opening repertoire creation</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Comprehensive strategic training</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Exclusive access to training materials</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Pre-tournament game simulation</li>
+                    </ul>
+                    <a href="index.html#contact-details" class="btn-accent text-center px-6 py-3 rounded-xl font-semibold mt-auto">Inquire about Master</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Group & Online Classes (New Section) -->
+    <section class="py-16 md:py-24 bg-[--color-secondary] px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Group Coaching & Online Classes</h2>
+            <p class="text-xl text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+                Prefer learning with peers? Join our online community classes to improve your game in a collaborative environment at a more accessible rate.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Group Class 1 -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl border border-accent/20 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white">Saturday Chess Club</h3>
+                        <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">Weekly Live</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">Join a group of like-minded improvers every Saturday. We analyze master games, solve tactical puzzles together, and play sparring matches with live feedback.</p>
+                    <div class="text-4xl font-bold text-accent mb-6">₦ 10,000 <span class="text-sm text-gray-400 font-normal">/ month</span></div>
+                    <a href="index.html#contact-details" class="btn-accent text-center px-6 py-3 rounded-xl font-semibold mt-auto">Join the Club</a>
+                </div>
+
+                <!-- Group Class 2 -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl border border-accent/20 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white">Beginner Bootcamp (Online)</h3>
+                        <span class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">Online Course</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">A 4-week crash course designed to take you from "knowing the moves" to playing your first competitive tournament game. Includes video lessons and quizzes.</p>
+                    <div class="text-4xl font-bold text-accent mb-6">₦ 25,000 <span class="text-sm text-gray-400 font-normal">/ one-time</span></div>
+                    <a href="index.html#contact-details" class="btn-accent text-center px-6 py-3 rounded-xl font-semibold mt-auto">Start Bootcamp</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- 6. Contact Section (Direct CTA) -->
+    <section id="contact-section" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[--color-primary] border-t border-accent/20">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4 text-white">Ready to Elevate Your Game?</h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Let's discuss your current rating, set ambitious goals, and map out your personalized improvement strategy.
+            </p>
+            <a href="index.html#contact-details" class="bg-white/10 text-white border border-accent/50 px-8 py-3 rounded-xl text-lg font-semibold hover:bg-white/20 transition duration-300 shadow-lg">
+                Contact Giftedhands to Book
+            </a>
+        </div>
+    </section>
+
+
+    <!-- 7. Footer (Link to index.html for simplicity) -->
+    <footer class="py-6 bg-[--color-primary] border-t border-accent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-500">&copy; 2024 Giftedhands. Strategy Meets Code.</p>
+        </div>
+    </footer>
+    
+    <!-- INLINE JAVASCRIPT for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeButton = document.getElementById('close-menu-button');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('translate-x-full');
+                mobileMenu.classList.toggle('translate-x-0');
+            };
+
+            if (menuButton) menuButton.addEventListener('click', toggleMenu);
+            if (closeButton) closeButton.addEventListener('click', toggleMenu);
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giftedhands | Coding Lessons - Build Your Future</title>
+    <!-- 🛑 NOTE: Tailwind CSS CDN is used here to ensure styles load, bypassing local file path issues. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- INLINE STYLES -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --color-primary: #1a1a2e;
+            --color-secondary: #0f4c75;
+            --color-accent: #ffd700;
+            --color-light: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            scroll-behavior: smooth;
+        }
+
+        .bg-gradient-hero-code {
+            background: linear-gradient(135deg, rgba(15, 76, 117, 0.95) 0%, rgba(26, 26, 46, 0.9) 100%);
+        }
+        .text-accent { color: var(--color-accent); }
+        .btn-accent {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+        }
+        .btn-accent:hover {
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px);
+        }
+        .card-bg { background-color: rgba(36, 44, 74, 0.7); }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Menu Sidebar (JS is at the bottom of the body) -->
+    <div id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-[--color-secondary] z-[60] transform translate-x-full transition-transform duration-300 shadow-2xl p-6 md:hidden">
+        <button id="close-menu-button" class="absolute top-4 right-4 text-3xl text-white hover:text-accent focus:outline-none">
+            &times;
+        </button>
+        <div class="pt-10 space-y-4 flex flex-col">
+            <a href="index.html" class="text-xl text-white hover:text-accent transition duration-200">Home</a>
+            <a href="chess.html" class="text-xl text-white hover:text-accent transition duration-200">Chess Mastery</a>
+            <a href="about.html" class="text-xl text-white hover:text-accent transition duration-200">About Me</a>
+            <a href="index.html#contact-details" class="text-xl text-white hover:text-accent transition duration-200">Book/Contact</a>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[--color-primary] shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tight">
+                <span class="text-accent">Gifted</span><span class="text-white">hands</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="index.html" class="hover:text-accent transition duration-200">Home</a>
+                <a href="chess.html" class="hover:text-accent transition duration-200">Chess Mastery</a>
+                <a href="about.html" class="hover:text-accent transition duration-200">About Me</a>
+                <a href="index.html#contact-details" class="hover:text-accent transition duration-200">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="menu-button" class="md:hidden text-2xl hover:text-accent focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="bg-gradient-hero-code text-white py-24 md:py-36 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl sm:text-7xl font-extrabold mb-4 tracking-tight">
+                Software Development <span class="text-accent">Coding Lessons</span>
+            </h1>
+            <p class="text-xl sm:text-2xl font-light mb-8 max-w-2xl mx-auto">
+                Launch your career and build a robust project portfolio using strategic, architect-level thinking applied to code.
+            </p>
+            <a href="#packages" class="btn-accent px-8 py-3 rounded-xl text-lg font-semibold shadow-2xl hover:shadow-accent/80">
+                View Coding Packages
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. Coaching Philosophy -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Our Methodology: Debugging Like a Grandmaster</h2>
+            <div class="max-w-3xl mx-auto text-lg text-gray-300 space-y-6">
+                <p>
+                    Coding mastery isn't just about syntax; it's about **architectural foresight**. We approach development like a chess game: plan the end goal (the solution), analyze threats (bugs/scalability issues), and execute with disciplined precision.
+                </p>
+                <p>
+                    I focus on the core logic and critical thinking that separates a beginner from a professional developer. Lessons emphasize clean code, robust data structures, and the ability to solve problems before they even appear in the compiler.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Core Training Pillars -->
+    <section class="py-16 md:py-24 bg-[--color-secondary] px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Three Tracks to Professionalism</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Pillar 1: Foundations -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl text-center border border-accent/20">
+                    <div class="text-5xl mb-4 text-accent">🧠</div>
+                    <h3 class="text-2xl font-bold mb-3">Programming Foundations</h3>
+                    <p class="text-gray-300">Master Python/JavaScript fundamentals, complex data structures, and algorithms. Focus on critical thinking and efficient, scalable logic.</p>
+                </div>
+
+                <!-- Pillar 2: Frontend & UI -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl text-center border border-accent/20">
+                    <div class="text-5xl mb-4 text-accent">🖥️</div>
+                    <h3 class="text-2xl font-bold mb-3">Modern Web & React</h3>
+                    <p class="text-gray-300">Learn to build dynamic, responsive user interfaces using modern frameworks like React. Focus on component architecture and state management.</p>
+                </div>
+
+                <!-- Pillar 3: Backend & Data -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl text-center border border-accent/20">
+                    <div class="text-5xl mb-4 text-accent">⚙️</div>
+                    <h3 class="text-2xl font-bold mb-3">Backend & System Design</h3>
+                    <p class="text-gray-300">Explore server-side logic, APIs, and database interaction. Understand system architecture and deployment for real-world projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Private Coaching Packages (1-on-1) -->
+    <section id="packages" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Private Coaching (1-on-1)</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Package 1: Starter -->
+                <div class="card-bg p-8 rounded-2xl shadow-2xl border border-gray-600 flex flex-col hover:shadow-lg hover:shadow-gray-700 transition duration-300">
+                    <h3 class="text-3xl font-extrabold text-accent mb-2">Code Starter: 1-on-1</h3>
+                    <p class="text-gray-400 mb-6">A focused introduction to set up your environment, goals, and learning path.</p>
+                    <div class="text-5xl font-bold text-white mb-4">₦ 30,000</div>
+                    <ul class="space-y-3 flex-grow mb-8 text-left text-gray-300">
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Two **60-minute sessions**</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Customized study plan</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Software setup and optimization</li>
+                        <li class="flex items-start text-gray-500">✗ Monthly project reviews</li>
+                        <li class="flex items-start text-gray-500">✗ Portfolio integration support</li>
+                    </ul>
+                    <a href="index.html#contact-details" class="btn-accent text-center px-6 py-3 rounded-xl font-semibold mt-auto">Book Starter</a>
+                </div>
+
+                <!-- Package 2: Portfolio Builder (Recommended) -->
+                <div class="card-bg p-8 rounded-2xl shadow-2xl border-4 border-accent flex flex-col relative transform scale-[1.02] hover:scale-[1.04] transition duration-500">
+                    <div class="absolute top-0 right-0 bg-accent text-primary text-sm font-bold py-1 px-3 rounded-tr-xl rounded-bl-lg">Most Popular</div>
+                    <h3 class="text-3xl font-extrabold text-accent mb-2">Portfolio Builder</h3>
+                    <p class="text-gray-400 mb-6">Monthly coaching focused on delivering 1-2 deployable, high-quality applications.</p>
+                    <div class="text-5xl font-bold text-white mb-4">₦ 90,000</div>
+                    <ul class="space-y-3 flex-grow mb-8 text-left text-gray-300">
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> **4 x 90-minute weekly sessions**</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Weekly code review and feedback</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Hands-on project architecture planning</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Priority messaging support</li>
+                        <li class="flex items-start text-gray-500">✗ Interview prep simulation</li>
+                    </ul>
+                    <a href="index.html#contact-details" class="btn-accent text-center px-6 py-3 rounded-xl font-semibold mt-auto">Enroll in Builder</a>
+                </div>
+
+                <!-- Package 3: Master Plan -->
+                <div class="card-bg p-8 rounded-2xl shadow-2xl border border-gray-600 flex flex-col hover:shadow-lg hover:shadow-gray-700 transition duration-300">
+                    <h3 class="text-3xl font-extrabold text-accent mb-2">Career Architect</h3>
+                    <p class="text-gray-400 mb-6">Comprehensive, 2-month program for career switchers or junior developers seeking promotion.</p>
+                    <div class="text-5xl font-bold text-white mb-4">₦ 180,000</div>
+                    <ul class="space-y-3 flex-grow mb-8 text-left text-gray-300">
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> **8 x 60-minute bi-weekly sessions**</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> System design and best practices</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Mock technical interview simulations</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Custom roadmapping for goals</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Lifetime access to materials</li>
+                    </ul>
+                    <a href="index.html#contact-details" class="btn-accent text-center px-6 py-3 rounded-xl font-semibold mt-auto">Inquire about Architect</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Group & Online Classes (New Section) -->
+    <section class="py-16 md:py-24 bg-[--color-secondary] px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Group Coaching & Self-Paced Learning</h2>
+            <p class="text-xl text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+                Learn collaboratively or at your own pace with our structured group programs and video courses.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Group Class 1 -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl border border-accent/20 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white">Advanced React Patterns</h3>
+                        <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">Weekly Live Group</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">A focused 4-week workshop on hooks, context, performance optimization, and professional component design patterns.</p>
+                    <div class="text-4xl font-bold text-accent mb-6">₦ 60,000 <span class="text-sm text-gray-400 font-normal">/ 4-week cohort</span></div>
+                    <a href="index.html#contact-details" class="btn-accent text-center px-6 py-3 rounded-xl font-semibold mt-auto">Join the Cohort</a>
+                </div>
+
+                <!-- Group Class 2 -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl border border-accent/20 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white">Foundational Python Bootcamp</h3>
+                        <span class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">Online Course</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">A comprehensive, self-paced video course covering basic syntax, object-oriented programming, and functional application development in Python.</p>
+                    <div class="text-4xl font-bold text-accent mb-6">₦ 35,000 <span class="text-sm text-gray-400 font-normal">/ self-paced</span></div>
+                    <a href="index.html#contact-details" class="btn-accent text-center px-6 py-3 rounded-xl font-semibold mt-auto">Enroll Now</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- 6. Contact Section (Direct CTA) -->
+    <section id="contact-section" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[--color-primary] border-t border-accent/20">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4 text-white">Ready to Architect Your Career?</h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Let's discuss your tech goals, current skills, and map out your personalized learning roadmap.
+            </p>
+            <a href="index.html#contact-details" class="bg-white/10 text-white border border-accent/50 px-8 py-3 rounded-xl text-lg font-semibold hover:bg-white/20 transition duration-300 shadow-lg">
+                Contact Giftedhands to Book
+            </a>
+        </div>
+    </section>
+
+
+    <!-- 7. Footer (Link to index.html for simplicity) -->
+    <footer class="py-6 bg-[--color-primary] border-t border-accent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-500">&copy; 2024 Giftedhands. Strategy Meets Code.</p>
+        </div>
+    </footer>
+    
+    <!-- INLINE JAVASCRIPT for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeButton = document.getElementById('close-menu-button');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('translate-x-full');
+                mobileMenu.classList.toggle('translate-x-0');
+            };
+
+            if (menuButton) menuButton.addEventListener('click', toggleMenu);
+            if (closeButton) closeButton.addEventListener('click', toggleMenu);
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+    </script>
+
+</body>
+</html>

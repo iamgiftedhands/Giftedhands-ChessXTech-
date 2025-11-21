@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giftedhands | Chess X Tech - Strategy Meets Code</title>
+    <!-- 🛑 NOTE: Tailwind CSS CDN is used here to ensure styles load, bypassing local file path issues. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- INLINE STYLES -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --color-primary: #1a1a2e; /* Dark Blue/Purple */
+            --color-secondary: #0f4c75; /* Deep Blue */
+            --color-accent: #ffd700; /* Gold (for the 'Giftedhands' effect) */
+            --color-light: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            scroll-behavior: smooth;
+        }
+
+        .bg-gradient-hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+        }
+        .text-accent { color: var(--color-accent); }
+        .btn-accent {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+        }
+        .btn-accent:hover {
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px);
+        }
+        .card-bg { background-color: rgba(36, 44, 74, 0.7); }
+        .divider-icon {
+            color: var(--color-accent);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Menu Sidebar (JS is at the bottom of the body) -->
+    <div id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-[--color-secondary] z-[60] transform translate-x-full transition-transform duration-300 shadow-2xl p-6 md:hidden">
+        <button id="close-menu-button" class="absolute top-4 right-4 text-3xl text-white hover:text-accent focus:outline-none">
+            &times; <!-- Close X icon -->
+        </button>
+        <div class="pt-10 space-y-4 flex flex-col">
+            <a href="chess.html" class="text-xl text-white hover:text-accent transition duration-200">Chess Mastery</a>
+            <a href="code.html" class="text-xl text-white hover:text-accent transition duration-200">Coding Lessons</a>
+            <a href="about.html" class="text-xl text-white hover:text-accent transition duration-200">About Me</a>
+            <a href="#contact-details" class="text-xl text-white hover:text-accent transition duration-200">Book/Contact</a>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[--color-primary] shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold tracking-tight">
+                <span class="text-accent">Gifted</span><span class="text-white">hands</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="chess.html" class="hover:text-accent transition duration-200">Chess Mastery</a>
+                <a href="code.html" class="hover:text-accent transition duration-200">Coding Lessons</a>
+                <a href="about.html" class="hover:text-accent transition duration-200">About Me</a>
+                <a href="#contact-details" class="hover:text-accent transition duration-200">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="menu-button" class="md:hidden text-2xl hover:text-accent focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section id="home" class="bg-gradient-hero min-h-screen flex items-center justify-center text-center py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Logo/Icon - Confirmed .jpeg extension -->
+            <!-- NOTE: Ensure you have your logo at assets/images/giftedhands-logo.jpeg -->
+            <img src="assets/images/giftedhands-logo.jpeg" 
+                 alt="Giftedhands Handshake Logo" 
+                 class="w-24 h-24 mx-auto mb-6 p-2 bg-white/10 shadow-xl rounded-full object-cover">
+
+            <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight">
+                <span class="block text-accent">Strategy Meets Code.</span>
+                <span class="block text-white">Master Your Mind, Build Your Future.</span>
+            </h1>
+            <p class="text-xl sm:text-2xl mb-10 font-light max-w-2xl mx-auto text-gray-300">
+                Personalized coaching in Chess mastery and Software Development by an experienced expert.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="chess.html" class="btn-accent px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-2xl">
+                    <span class="mr-2">♟️</span> Explore Chess Mastery
+                </a>
+                <a href="code.html" class="bg-white/10 text-white border border-accent/50 px-8 py-3 rounded-xl text-lg font-semibold hover:bg-white/20 transition duration-300 shadow-lg">
+                    <span class="mr-2">💻</span> Start Coding Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Dual Focus/Pillars Section -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">The <span class="text-accent">Giftedhands</span> Advantage</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                
+                <!-- Chess Pillar Card -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl border border-accent/20 hover:shadow-accent/50 transition duration-500">
+                    <div class="text-6xl mb-4 text-accent text-center">♟️</div>
+                    <h3 class="text-3xl font-bold mb-4 text-center">Chess Mastery</h3>
+                    <p class="text-gray-300 mb-6 text-center">
+                        Sharpen your strategic thinking, calculation, and tactical vision. From opening theory to endgame precision, elevate your game with personalized coaching plans.
+                    </p>
+                    <ul class="space-y-3 list-none text-left text-gray-300">
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Personalized Game Analysis</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Opening Repertoire Development</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Deep Tactical & Positional Training</li>
+                    </ul>
+                    <div class="mt-8 text-center">
+                        <a href="chess.html" class="btn-accent px-6 py-2 rounded-lg font-semibold text-sm">View Chess Packages</a>
+                    </div>
+                </div>
+
+                <!-- Tech Pillar Card - Content Updated -->
+                <div class="card-bg p-8 rounded-2xl shadow-xl border border-accent/20 hover:shadow-accent/50 transition duration-500">
+                    <div class="text-6xl mb-4 text-accent text-center">💻</div>
+                    <h3 class="text-3xl font-bold mb-4 text-center">Coding Lessons</h3>
+                    <p class="text-gray-300 mb-6 text-center">
+                        Start your journey into software development. Learn modern web technologies and essential programming languages with a focus on real-world projects.
+                    </p>
+                    <ul class="space-y-3 list-none text-left text-gray-300">
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Full-Stack Web Development Track</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Python & Data Structures Fundamentals</li>
+                        <li class="flex items-start"><span class="text-accent mr-2 mt-1">✓</span> Hands-on Project Portfolio Building</li>
+                    </ul>
+                    <div class="mt-8 text-center">
+                        <a href="code.html" class="bg-white/10 text-white border border-accent/50 px-6 py-2 rounded-lg font-semibold text-sm hover:bg-white/20">Enroll in Coding</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. The Connection (About Me) Section -->
+    <section id="about" class="py-16 md:py-24 bg-[--color-secondary] px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6 text-white">The Synergy: <span class="text-accent">Why Chess X Tech?</span></h2>
+            <p class="text-xl text-gray-200 mb-8">
+                The skills that win games are the same skills that build great software.
+            </p>
+            <div class="flex justify-center items-center my-8">
+                <span class="text-6xl divider-icon mx-4">♟️</span>
+                <span class="text-2xl font-bold text-accent">|</span>
+                <span class="text-6xl divider-icon mx-4">🧠</span>
+                <span class="text-2xl font-bold text-accent">|</span>
+                <span class="text-6xl divider-icon mx-4">💻</span>
+            </div>
+            <p class="text-lg text-gray-300 mb-8">
+                I teach you to approach problems like a master: with **foresight, deep analysis, and disciplined execution**. Whether you're planning a complex endgame or debugging a critical system, the process is the same. I'm here to transfer those "gifted hands" skills to your game and your code.
+            </p>
+            <a href="about.html" class="btn-accent px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-2xl">
+                Read My Full Story
+            </a>
+        </div>
+    </section>
+
+    <!-- 4. Contact Details Section -->
+    <section id="contact-details" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Book a Lesson or Consultation</h2>
+            <p class="text-lg text-gray-400 mb-12">I'm available across multiple platforms. Click any number or email to copy it instantly!</p>
+
+            <!-- Contact Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                
+                <!-- Email -->
+                <div class="p-6 rounded-xl card-bg border border-gray-600 shadow-xl cursor-pointer hover:border-accent transition duration-300" onclick="copyToClipboard('email-address')" data-original-text="emmanuelafolabs@gmail.com">
+                    <span class="text-2xl text-accent block mb-2">📧 Email</span>
+                    <span id="email-address" class="text-lg text-white font-semibold">emmanuelafolabs@gmail.com</span>
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="p-6 rounded-xl card-bg border border-gray-600 shadow-xl cursor-pointer hover:border-green-500 transition duration-300" onclick="copyToClipboard('whatsapp-number')" data-original-text="09085839865 (WhatsApp)">
+                    <span class="text-2xl text-green-500 block mb-2">📱 WhatsApp</span>
+                    <span id="whatsapp-number" class="text-lg text-white font-semibold">09085839865</span>
+                </div>
+
+                <!-- Calls -->
+                <div class="p-6 rounded-xl card-bg border border-gray-600 shadow-xl cursor-pointer hover:border-white transition duration-300" onclick="copyToClipboard('call-number')" data-original-text="07013203874 (Calls)">
+                    <span class="text-2xl text-white block mb-2">📞 Calls</span>
+                    <span id="call-number" class="text-lg text-white font-semibold">07013203874</span>
+                </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold mb-6">Connect with Giftedhands</h3>
+                <div class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg">
+                    <a href="https://www.linkedin.com/in/emmanuelafolabs" target="_blank" class="text-gray-300 hover:text-blue-400 transition duration-200 flex items-center mb-2">
+                        <span class="text-xl mr-1">🔗</span> LinkedIn
+                    </a>
+                    <a href="https://github.com/iamgiftedhands" target="_blank" class="text-gray-300 hover:text-gray-400 transition duration-200 flex items-center mb-2">
+                        <span class="text-xl mr-1">💻</span> GitHub
+                    </a>
+                    <a href="https://instagram.com/i_amgiftedhands" target="_blank" class="text-gray-300 hover:text-pink-500 transition duration-200 flex items-center mb-2">
+                        <span class="text-xl mr-1">📸</span> Instagram
+                    </a>
+                    <a href="https://facebook.com/Afolabi Emmanuel" target="_blank" class="text-gray-300 hover:text-blue-600 transition duration-200 flex items-center mb-2">
+                        <span class="text-xl mr-1">📘</span> Facebook
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. Footer (Simple) -->
+    <footer class="py-6 bg-[--color-primary] border-t border-accent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-500">&copy; 2024 Giftedhands. Strategy Meets Code.</p>
+        </div>
+    </footer>
+    
+    <!-- INLINE JAVASCRIPT for Mobile Menu and Copy Functionality -->
+    <script>
+        // --- Mobile Menu Toggle Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeButton = document.getElementById('close-menu-button');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('translate-x-full');
+                mobileMenu.classList.toggle('translate-x-0');
+            };
+
+            if (menuButton) menuButton.addEventListener('click', toggleMenu);
+            if (closeButton) closeButton.addEventListener('click', toggleMenu);
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+
+        // --- Copy to Clipboard Utility ---
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            let textToCopy = element.innerText || element.textContent;
+
+            // Explicitly set values since innerText might be modified by the confirmation message
+            if (elementId === 'whatsapp-number') {
+                textToCopy = '09085839865';
+            } else if (elementId === 'call-number') {
+                textToCopy = '07013203874';
+            } else if (elementId === 'email-address') {
+                textToCopy = 'emmanuelafolabs@gmail.com';
+            }
+
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = textToCopy.trim();
+            document.body.appendChild(tempInput);
+            tempInput.select();
+
+            try {
+                // Use document.execCommand('copy') for better compatibility in Canvas
+                document.execCommand('copy');
+                
+                // Show Confirmation Message
+                const originalText = element.getAttribute('data-original-text');
+                if (originalText) {
+                    element.innerText = 'Copied!';
+                    element.classList.add('bg-green-600', 'text-white');
+                    setTimeout(() => {
+                        element.innerText = originalText;
+                        element.classList.remove('bg-green-600', 'text-white');
+                    }, 1000);
+                }
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            } finally {
+                document.body.removeChild(tempInput);
+            }
+        }
+    </script>
+
+</body>
+</html>

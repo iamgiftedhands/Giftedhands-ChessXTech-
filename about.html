@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giftedhands | About Me - Afolabi Emmanuel</title>
+    <!-- 🛑 NOTE: Tailwind CSS CDN is used here to ensure styles load, bypassing local file path issues. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- INLINE STYLES -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --color-primary: #1a1a2e;
+            --color-secondary: #0f4c75;
+            --color-accent: #ffd700;
+            --color-light: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            scroll-behavior: smooth;
+        }
+
+        .bg-gradient-hero-about {
+            background: linear-gradient(135deg, rgba(15, 76, 117, 0.95) 0%, rgba(26, 26, 46, 0.9) 100%);
+        }
+        .text-accent { color: var(--color-accent); }
+        .btn-accent {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+        }
+        .btn-accent:hover {
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px);
+        }
+        .card-bg { background-color: rgba(36, 44, 74, 0.7); }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Menu Sidebar (JS is at the bottom of the body) -->
+    <div id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-[--color-secondary] z-[60] transform translate-x-full transition-transform duration-300 shadow-2xl p-6 md:hidden">
+        <button id="close-menu-button" class="absolute top-4 right-4 text-3xl text-white hover:text-accent focus:outline-none">
+            &times;
+        </button>
+        <div class="pt-10 space-y-4 flex flex-col">
+            <a href="index.html" class="text-xl text-white hover:text-accent transition duration-200">Home</a>
+            <a href="chess.html" class="text-xl text-white hover:text-accent transition duration-200">Chess Mastery</a>
+            <a href="code.html" class="text-xl text-white hover:text-accent transition duration-200">Coding Lessons</a>
+            <a href="index.html#contact-details" class="text-xl text-white hover:text-accent transition duration-200">Book/Contact</a>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[--color-primary] shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tight">
+                <span class="text-accent">Gifted</span><span class="text-white">hands</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="index.html" class="hover:text-accent transition duration-200">Home</a>
+                <a href="chess.html" class="hover:text-accent transition duration-200">Chess Mastery</a>
+                <a href="code.html" class="hover:text-accent transition duration-200">Coding Lessons</a>
+                <a href="index.html#contact-details" class="hover:text-accent transition duration-200">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="menu-button" class="md:hidden text-2xl hover:text-accent focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="bg-gradient-hero-about text-white py-24 md:py-36 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl sm:text-7xl font-extrabold mb-4 tracking-tight">
+                The Story Behind <span class="text-accent">Giftedhands</span>
+            </h1>
+            <p class="text-xl sm:text-2xl font-light mb-8 max-w-2xl mx-auto">
+                Meet the instructor, Afolabi Emmanuel: Strategist, Coder, and Teacher.
+            </p>
+            <!-- Assuming your logo is in the root assets/images folder -->
+            <img src="assets/images/giftedhands-logo.jpeg" 
+                 alt="Giftedhands Handshake Logo" 
+                 class="w-24 h-24 mx-auto mb-6 p-2 bg-white/10 shadow-xl rounded-full object-cover">
+        </div>
+    </section>
+
+    <!-- 2. Biography -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">My Journey: From Chessboard to Codebase</h2>
+            <div class="max-w-4xl mx-auto text-lg text-gray-300 space-y-8">
+                
+                <p>
+                    I am **Afolabi Emmanuel**, the founder of Giftedhands. My passion lies in two fields that, at first glance, seem worlds apart: **competitive chess** and **software development**. But in reality, they are two sides of the same strategic coin.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                    <div class="space-y-4 card-bg p-6 rounded-xl border border-accent/20">
+                        <h3 class="text-2xl font-bold text-accent">The Strategist (Chess) ♟️</h3>
+                        <p>
+                            As an active chess player, I live and breathe complex calculations, positional assessments, and disciplined planning. I've learned that success on the board is about **foresight**—thinking several moves ahead—and **resource management** (your pieces and time). I apply this strategic rigor to every lesson I teach, helping students build solid, deep plans, not just superficial tactics.
+                        </p>
+                    </div>
+                    <div class="space-y-4 card-bg p-6 rounded-xl border border-accent/20">
+                        <h3 class="text-2xl font-bold text-accent">The Architect (Tech) 💻</h3>
+                        <p>
+                            Professionally, I am a software developer specializing in modern web architecture and backend systems. Coding at a high level requires the same focus: debugging complex systems (analyzing errors), designing scalable architecture (long-term planning), and implementing clean solutions (disciplined execution). I teach students to think like architects, building their coding skills on a foundation of solid logic.
+                        </p>
+                    </div>
+                </div>
+                
+                <h3 class="text-3xl font-bold text-white pt-8 text-center">The Giftedhands Philosophy</h3>
+                <p class="text-center text-xl text-gray-200">
+                    The core mission of Giftedhands is simple: **transferable mastery.** I don't just teach skills; I teach the mindset required to master any complex system, whether it’s a board game or a codebase. When you train with me, you learn to analyze problems systematically, prioritize variables, and execute solutions with confidence.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Credentials & Portfolio Links -->
+    <section class="py-16 md:py-24 bg-[--color-secondary] px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8 text-white">Professional Credentials</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-lg">
+                
+                <!-- Tech Credentials -->
+                <div class="p-6 card-bg rounded-xl shadow-xl border border-accent/20">
+                    <h3 class="text-2xl font-bold mb-3 text-accent">Software Portfolio</h3>
+                    <p class="text-gray-300 mb-4">See my work, contributions, and personal projects.</p>
+                    <a href="https://www.linkedin.com/in/emmanuelafolabs" target="_blank" class="text-gray-300 hover:text-blue-400 transition duration-200 flex items-center justify-center space-x-2">
+                        <span class="text-xl">🔗</span> LinkedIn
+                    </a>
+                    <a href="https://github.com/iamgiftedhands" target="_blank" class="text-gray-300 hover:text-gray-400 transition duration-200 flex items-center justify-center space-x-2">
+                        <span class="text-xl">💻</span> GitHub
+                    </a>
+                </div>
+
+                <!-- Teaching & Coaching -->
+                <div class="p-6 card-bg rounded-xl shadow-xl border border-accent/20">
+                    <h3 class="text-2xl font-bold mb-3 text-accent">Chess & Teaching Focus</h3>
+                    <p class="text-gray-300 mb-4">Dedicated to helping others achieve excellence on the board and in the digital world.</p>
+                    <p class="text-sm text-gray-400">Ask about my tournament experience and student success stories!</p>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                <a href="index.html#contact-details" class="btn-accent px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-2xl">
+                    Ready to Start? Book a Lesson!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Footer -->
+    <footer class="py-6 bg-[--color-primary] border-t border-accent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-500">&copy; 2024 Giftedhands. Strategy Meets Code.</p>
+        </div>
+    </footer>
+    
+    <!-- INLINE JAVASCRIPT for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeButton = document.getElementById('close-menu-button');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('translate-x-full');
+                mobileMenu.classList.toggle('translate-x-0');
+            };
+
+            if (menuButton) menuButton.addEventListener('click', toggleMenu);
+            if (closeButton) closeButton.addEventListener('click', toggleMenu);
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+    </script>
+
+</body>
+</html>
